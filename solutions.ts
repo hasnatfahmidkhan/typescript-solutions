@@ -3,13 +3,10 @@ const filterEvenNumbers = (numbers: number[]): number[] => {
   return numbers.filter((num) => num % 2 === 0);
 };
 
-// console.log(filterEvenNumbers([1, 2, 3, 4, 5, 6]));
 // Problem - 2
 const reverseString = (str: string): string => {
   return str.split("").reverse().join("");
 };
-
-// console.log(reverseString("typescript"));
 
 // Problem - 3
 type StringOrNumber = string | number;
@@ -17,7 +14,6 @@ const checkType = (input: StringOrNumber): StringOrNumber => {
   if (typeof input === "string") return "String";
   return "Number";
 };
-// console.log(checkType(22));
 
 // Problem - 4
 type TUser = { id: number; name: string; age: number };
@@ -28,8 +24,6 @@ const getProperty = <T extends TUser, K extends keyof T>(
 ): T[K] => {
   return object[key];
 };
-
-// console.log(getProperty({ id: 1, name: "John Doe", age: 21 }, "name"));
 
 // Problem - 5
 interface Book {
@@ -49,7 +43,6 @@ const myBook = {
   author: "Jane Doe",
   publishedYear: 2024,
 };
-// console.log(toggleReadStatus(myBook));
 
 // Problem - 6
 class Person {
@@ -73,11 +66,7 @@ class Student extends Person {
   }
 }
 
-const student = new Student("Alice", 20, "A");
-// student.getDetails();
-
 // Problem - 7
 const getIntersection = (num1: number[], num2: number[]): number[] => {
   return num1.filter((num) => num2.includes(num));
 };
-console.log(getInter/section([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]));

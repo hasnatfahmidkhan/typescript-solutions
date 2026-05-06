@@ -1,17 +1,23 @@
-# Why `any` is a Type Safety hole in TypeScript?
+# How Pick & Omit keep your code DRY in TypeScript?
 
 ## Introduction
-TypeScript is designed to provide type safety on top of JavaScript. However, "any" type completely bypasses this safety system. Because of this, "any" is called a ***type safety hole***.
 
-In this blog, we'll explore why "any" is dangerous and how it can break your application silently.
+In real world applications, you often need variations of base type. For example, a full "User" object
+for the database and a smaller version for UI and APIs. Rewriting types again and again leads to duplication and inconsistency.
+
+TypeScript solves this with utility types like "Pick" and "Omit".
 
 ---
-The "any" type tells TypeScript: 
-> "Don't check this value. Trust me."
 
-Example: 
+## The Problem: Code Duplication
+
 ```ts
-let value: any = "Hello";
-value = 10;
-value = true;
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+}
+
+type TPublicUser = Pick<User, "id" | "name">;
 ```
